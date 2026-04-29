@@ -1,0 +1,9 @@
+{
+  "name": "bar",
+  "private": true,
+  "devDependencies": {
+    "chai": "^4.5.0",
+    "chai-as-promised": "^7.1.2",
+    "knip": "6.7.0"
+  }
+}
