@@ -529,14 +529,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"knip-bug-repro-root@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "knip-bug-repro-root@workspace:."
-  dependencies:
-    knip: "npm:^6.6.2"
-  languageName: unknown
-  linkType: soft
-
 "knip@npm:^6.6.2":
   version: 6.7.0
   resolution: "knip@npm:6.7.0"
@@ -755,6 +747,14 @@ __metadata:
   checksum: 10c0/e2c6023372cc7b5764719a5ffb9da0f8e781212fa7ca4bd0562db929df8e117460f00dff3cb7509dacfc06b86de924b247f504d0ce1806a37fac4633081466b0
   languageName: node
   linkType: hard
+
+"playground-knip-load-package-manifest-bug@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "playground-knip-load-package-manifest-bug@workspace:."
+  dependencies:
+    knip: "npm:^6.6.2"
+  languageName: unknown
+  linkType: soft
 
 "require-directory@npm:^2.1.1":
   version: 2.1.1
