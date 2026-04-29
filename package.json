@@ -6,6 +6,6 @@
     "packages/*"
   ],
   "devDependencies": {
-    "knip": "^6.6.2"
+    "knip": "6.7.0"
   }
 }

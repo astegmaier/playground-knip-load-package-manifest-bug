@@ -529,7 +529,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"knip@npm:^6.6.2":
+"knip@npm:6.7.0":
   version: 6.7.0
   resolution: "knip@npm:6.7.0"
   dependencies:
@@ -752,7 +752,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "playground-knip-load-package-manifest-bug@workspace:."
   dependencies:
-    knip: "npm:^6.6.2"
+    knip: "npm:6.7.0"
   languageName: unknown
   linkType: soft
 
