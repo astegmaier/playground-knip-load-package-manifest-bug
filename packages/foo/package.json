@@ -2,10 +2,10 @@
   "name": "foo",
   "private": true,
   "scripts": {
-    "moo": "cowsay hello",
-    "knip": "node ../../node_modules/knip/dist/cli.js"
+    "moo": "cowsay hello"
   },
   "devDependencies": {
-    "cowsay": "^1.6.0"
+    "cowsay": "^1.6.0",
+    "knip": "6.7.0"
   }
 }

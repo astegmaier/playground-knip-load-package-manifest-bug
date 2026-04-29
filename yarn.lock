@@ -469,6 +469,7 @@ __metadata:
   resolution: "foo@workspace:packages/foo"
   dependencies:
     cowsay: "npm:^1.6.0"
+    knip: "npm:6.7.0"
   languageName: unknown
   linkType: soft
 
