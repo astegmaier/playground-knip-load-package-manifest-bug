@@ -5,31 +5,6 @@ monorepo (yarn workspaces, pnpm with `shamefully-hoist`, etc.), it fails to
 resolve script-invoked binaries to their providing package, and reports the
 package as an unused devDependency.
 
-## What the bug looks like
-
-`packages/foo/package.json` declares `cowsay` as a devDependency and uses its
-binary in a script:
-
-```json
-{
-  "scripts": { "moo": "cowsay hello" },
-  "devDependencies": { "cowsay": "^1.6.0" }
-}
-```
-
-This is a perfectly valid, used dependency. But knip reports it as unused:
-
-```
-$ cd packages/foo
-$ yarn knip --include dependencies
-
-Unused devDependencies (1)
-cowsay  package.json:8:6
-```
-
-Running knip from the repo root (monorepo mode) reports correctly — `cowsay` is
-used. The bug is specific to invoking knip from within the workspace dir.
-
 ## Reproducing
 
 ```bash
@@ -37,22 +12,21 @@ git clone <this repo>
 cd playground-knip-load-package-manifest-bug
 yarn install
 
-# Bug: run from inside the workspace — `cowsay` reported unused
+# Bug: run from inside the workspace — cowsay reported unused
 cd packages/foo
-node ../../node_modules/knip/dist/cli.js --include dependencies
-# → "Unused devDependencies (1)  cowsay"
+yarn knip --include dependencies
+# → "Unused devDependencies (1)  cowsay  package.json:8:6"
 
-# No bug: run from root in monorepo mode — silent (no issues)
+# No bug: run from root in monorepo mode — no issues
 cd ../..
-node node_modules/knip/dist/cli.js --workspace packages/foo --include dependencies
+yarn knip --workspace packages/foo --include dependencies
 # → exit 0, no output
 ```
 
-Versions used while authoring this repro:
-
-- yarn 4.12.0 (with `nodeLinker: node-modules`)
-- knip 6.7.0
-- node 24.14.0
+`packages/foo/package.json` declares `cowsay` as a devDependency and uses its
+binary in a script (`"moo": "cowsay hello"`). This is a valid, used dependency,
+but knip reports it as unused when run from within the workspace. Running from
+the repo root in monorepo mode correctly finds no issues.
 
 ## Why this matters
 
@@ -191,9 +165,3 @@ file directly off disk and sidesteps that pitfall.
   in `dir/node_modules`); the new behaviour is a strict superset, so existing
   tests should continue to pass. A new test fixture mirroring this repro
   (hoisted dep + single-project run) would lock in the fix.
-
-### Where to file
-
-If filing upstream: <https://github.com/webpro-nl/knip/issues/new>. The change
-touches one file (`packages/knip/src/manifest/helpers.ts`) plus a fixture and
-test under `packages/knip/test/`.
