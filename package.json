@@ -6,6 +6,6 @@
     "packages/*"
   ],
   "devDependencies": {
-    "knip": "6.7.0"
+    "knip": "patch:knip@npm%3A6.7.0#~/.yarn/patches/knip-npm-6.7.0-ee92a07bda.patch"
   }
 }

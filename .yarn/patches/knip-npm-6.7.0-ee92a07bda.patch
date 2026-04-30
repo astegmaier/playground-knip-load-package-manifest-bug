@@ -1,0 +1,38 @@
+diff --git a/dist/manifest/helpers.js b/dist/manifest/helpers.js
+index 5ea7d489ade089557302d888af989239182083c6..38edbaff6ce50c9273cbf259d9a717833596fbd9 100644
+--- a/dist/manifest/helpers.js
++++ b/dist/manifest/helpers.js
+@@ -1,16 +1,23 @@
+-import { join } from '../util/path.js';
++import { dirname, join } from '../util/path.js';
+ import { _require } from '../util/require.js';
+ export const loadPackageManifest = ({ dir, packageName, cwd }) => {
+-    try {
+-        return _require(join(dir, 'node_modules', packageName, 'package.json'));
++    let current = dir;
++    while (true) {
++        try {
++            return _require(join(current, 'node_modules', packageName, 'package.json'));
++        }
++        catch (_error) {
++        }
++        const parent = dirname(current);
++        if (parent === current)
++            break;
++        current = parent;
+     }
+-    catch (_error) {
+-        if (dir !== cwd) {
+-            try {
+-                return _require(join(cwd, 'node_modules', packageName, 'package.json'));
+-            }
+-            catch (_error) {
+-            }
++    if (dir !== cwd) {
++        try {
++            return _require(join(cwd, 'node_modules', packageName, 'package.json'));
++        }
++        catch (_error) {
+         }
+     }
+ };

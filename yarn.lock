@@ -383,7 +383,7 @@ __metadata:
   dependencies:
     chai: "npm:^4.5.0"
     chai-as-promised: "npm:^7.1.2"
-    knip: "npm:6.7.0"
+    knip: "patch:knip@npm%3A6.7.0#~/.yarn/patches/knip-npm-6.7.0-ee92a07bda.patch"
   languageName: unknown
   linkType: soft
 
@@ -530,7 +530,7 @@ __metadata:
   resolution: "foo@workspace:packages/foo"
   dependencies:
     cowsay: "npm:^1.6.0"
-    knip: "npm:6.7.0"
+    knip: "patch:knip@npm%3A6.7.0#~/.yarn/patches/knip-npm-6.7.0-ee92a07bda.patch"
   languageName: unknown
   linkType: soft
 
@@ -620,6 +620,31 @@ __metadata:
     knip: bin/knip.js
     knip-bun: bin/knip-bun.js
   checksum: 10c0/35c13edc66e48cb696c196d0acb4622954041b4b11393e897433cf493bf46c1a591d51ae10911252aebd6424a9ce255f4476dcd9e85b9214e927606669a769b0
+  languageName: node
+  linkType: hard
+
+"knip@patch:knip@npm%3A6.7.0#~/.yarn/patches/knip-npm-6.7.0-ee92a07bda.patch":
+  version: 6.7.0
+  resolution: "knip@patch:knip@npm%3A6.7.0#~/.yarn/patches/knip-npm-6.7.0-ee92a07bda.patch::version=6.7.0&hash=fe9616"
+  dependencies:
+    fdir: "npm:^6.5.0"
+    formatly: "npm:^0.3.0"
+    get-tsconfig: "npm:4.14.0"
+    jiti: "npm:^2.6.0"
+    minimist: "npm:^1.2.8"
+    oxc-parser: "npm:^0.127.0"
+    oxc-resolver: "npm:^11.19.1"
+    picomatch: "npm:^4.0.4"
+    smol-toml: "npm:^1.6.1"
+    strip-json-comments: "npm:5.0.3"
+    tinyglobby: "npm:^0.2.16"
+    unbash: "npm:^3.0.0"
+    yaml: "npm:^2.8.2"
+    zod: "npm:^4.1.11"
+  bin:
+    knip: bin/knip.js
+    knip-bun: bin/knip-bun.js
+  checksum: 10c0/7f0ae271d4ada7eab89149210de6a1d832446e23a0ff2de461b16c3e80cfff7f9cc2239f08060cee4eb4a5dc8425d41b238fbdf98c82f07ccfb6b6dad6562681
   languageName: node
   linkType: hard
 
@@ -837,7 +862,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "playground-knip-load-package-manifest-bug@workspace:."
   dependencies:
-    knip: "npm:6.7.0"
+    knip: "patch:knip@npm%3A6.7.0#~/.yarn/patches/knip-npm-6.7.0-ee92a07bda.patch"
   languageName: unknown
   linkType: soft
 
