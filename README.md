@@ -77,13 +77,17 @@ in `knip.config.ts`. That suppresses the false positives but is unsatisfying
 — it also masks genuine unused-dependency reports if they ever appear, and
 it papers over a structural bug rather than fixing it.
 
-## Root cause analysis
+## Root cause analysis (AI-generated)
 
 > ⚠️ **Author's note:** I have verified that the above reproduction works as described.
 > But the root cause analysis and proposed fix was drafted by Claude.
 > I can verify that the proposed code change fixes this reproduction,
 > but I'm currently uncertain about whether it is the "right" fix all-up.
 > If you are open to a fix PR, I am happy to take ownership of that and dive deeper.
+>
+> The fix is applied as a `yarn patch` on the
+> [`test-fix` branch](https://github.com/astegmaier/playground-knip-load-package-manifest-bug/tree/test-fix) —
+> check it out and run the same commands above to confirm both symptoms go away.
 
 ### How knip uses installed packages' manifests
 
