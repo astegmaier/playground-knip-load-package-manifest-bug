@@ -79,6 +79,12 @@ it papers over a structural bug rather than fixing it.
 
 ## Root cause analysis
 
+> ⚠️ **Author's note:** I have verified that the above reproduction works as described.
+> But the root cause analysis and proposed fix was drafted by Claude.
+> I can verify that the proposed code change fixes this reproduction,
+> but I'm currently uncertain about whether it is the "right" fix all-up.
+> If you are open to a fix PR, I am happy to take ownership of that and dive deeper.
+
 ### How knip uses installed packages' manifests
 
 When knip processes a workspace, it iterates over each declared dependency
@@ -140,10 +146,6 @@ finds `<root>/node_modules/<dep>/package.json`, and resolution succeeds.
 That's why neither symptom shows up in monorepo mode.
 
 ## Suggested fix (AI-generated)
-
-> ⚠️ **Author's note:** This proposed fix was drafted by Claude (an AI
-> assistant). I have not yet validated it against knip's full test suite or
-> edge cases — treat as a starting point for discussion, not a finished patch.
 
 Have `loadPackageManifest` walk up parent directories from `dir`, the way
 Node's own `require` resolution does. This handles arbitrary depths of
