@@ -6,6 +6,6 @@
     "packages/*"
   ],
   "devDependencies": {
-    "knip": "6.7.0"
+    "knip": "https://pkg.pr.new/knip@18a917e"
   }
 }
